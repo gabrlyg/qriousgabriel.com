@@ -1,9 +1,22 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          social {
+            twitter
+            instagram
+            github
+          }
+        }
+      }
+    }
+  `)
   let header
 
   if (isRootPath) {
@@ -25,9 +38,25 @@ const Layout = ({ location, title, children }) => {
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
+        <div className="footer-socials">
+          <a
+            href={`https://www.twitter.com/${data.site.siteMetadata?.social.twitter}`}
+          >
+            Twitter
+          </a>{" "}
+          &bull;{" "}
+          <a
+            href={`https://www.instagram.com/${data.site.siteMetadata?.social.instagram}`}
+          >
+            Instagram
+          </a>{" "}
+          &bull;{" "}
+          <a
+            href={`https://www.github.com/${data.site.siteMetadata?.social.github}`}
+          >
+            GitHub
+          </a>
+        </div>
       </footer>
     </div>
   )

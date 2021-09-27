@@ -1,14 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Qrious Gabriel Devs`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `qriousgabriel`,
+      summary: `Qriosity-driven humanoid space probe.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `A place where I keep a record of my thoughts when developing.`,
+    siteUrl: `https://qriousgabriel.dev`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `qriousgabriel`,
+      instagram: `qriousgabriel`,
+      github: `qriousgabriel`,
     },
   },
   plugins: [
