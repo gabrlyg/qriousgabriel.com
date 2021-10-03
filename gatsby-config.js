@@ -129,31 +129,6 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-typescript`,
-      options: {
-        compilerOptions: {
-          allowSyntheticDefaultImports: true,
-          esModuleInterop: true,
-          allowJs: true,
-          declaration: false,
-          importHelpers: true,
-          jsx: "react",
-          lib: ["dom", "es2015", "es2017"],
-          module: "commonjs",
-          noEmitHelpers: false,
-          noImplicitAny: true,
-          noResolve: false,
-          noUnusedLocals: true,
-          noUnusedParameters: false,
-          preserveConstEnums: true,
-          removeComments: true,
-          sourceMap: true,
-          strictNullChecks: true,
-          target: "esnext",
-        },
-        include: ["./src/**/*", "./__tests__/**/*"],
-      },
-    },
+    `gatsby-plugin-typescript`,
   ],
 }
