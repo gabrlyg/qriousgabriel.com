@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Qrious Gabriel Devs`,
+    title: `Qrious Gabriel`,
     author: {
       name: `qriousgabriel`,
-      summary: `Qriosity-driven humanoid space probe.`,
+      summary: `Curiosity-driven humanoid space probe.`,
     },
-    description: `A place where I keep a record of my thoughts when developing.`,
+    description: `A little corner of mine on the internet`,
     siteUrl: `https://qriousgabriel.dev`,
     social: {
       twitter: `qriousgabriel`,
