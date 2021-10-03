@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Link, graphql, PageProps } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Bio from "../components/Bio"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
 
 interface DataProps {
   site: {
@@ -22,7 +22,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
+        <SEO title="All posts" />
         <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
@@ -35,7 +35,7 @@ const BlogIndex: React.FC<PageProps<DataProps>> = ({
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
+      <SEO title="All posts" />
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map((post: any) => {

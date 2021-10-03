@@ -1,9 +1,9 @@
 import * as React from "react"
 import { Link, graphql, PageProps } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Bio from "../components/Bio"
+import Layout from "../components/Layout"
+import SEO from "../components/SEO"
 
 type DataProps = {
   site: {
@@ -21,7 +21,7 @@ const BlogPostTemplate = ({ data, location }: PageProps<DataProps>) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo
+      <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
