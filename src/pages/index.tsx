@@ -1,12 +1,22 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, PageProps } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+interface DataProps {
+  site: {
+    siteMetadata: any
+  }
+  allMarkdownRemark: any
+}
+
+const BlogIndex: React.FC<PageProps<DataProps>> = ({
+  data,
+  location,
+}: PageProps<DataProps>) => {
+  const siteTitle = data.site?.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
 
   if (posts.length === 0) {
@@ -28,7 +38,7 @@ const BlogIndex = ({ data, location }) => {
       <Seo title="All posts" />
       <Bio />
       <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
+        {posts.map((post: any) => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (

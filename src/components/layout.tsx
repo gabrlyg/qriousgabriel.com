@@ -1,7 +1,13 @@
 import * as React from "react"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql, PageProps } from "gatsby"
 
-const Layout = ({ location, title, children }) => {
+type LayoutProps = {
+  location: PageProps["location"]
+  title: string
+  children: JSX.Element | JSX.Element[]
+}
+
+const Layout = ({ location, title, children }: LayoutProps) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   const data = useStaticQuery(graphql`
@@ -17,7 +23,7 @@ const Layout = ({ location, title, children }) => {
       }
     }
   `)
-  let header
+  let header: JSX.Element
 
   if (isRootPath) {
     header = (
