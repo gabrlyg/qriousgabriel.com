@@ -1,4 +1,4 @@
-# qriousgabriel.com
+# [qriousgabriel.com](https://qriousgabriel.com)
 
 My personal blog built upon [Gatsby starter blog](https://github.com/gatsbyjs/gatsby-starter-blog).
 
