@@ -76,7 +76,7 @@ pre::-webkit-scrollbar-track {
 }
 
 pre::-webkit-scrollbar-thumb {
-  background-color: var(--purple);
+  background-color: var(--color-primary);
   border-radius: 0px;
 }
 
