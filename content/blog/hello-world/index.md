@@ -1,7 +1,7 @@
 ---
 title: Hello World
-date: "2015-05-01T22:12:03.284Z"
-description: "Hello World"
+date: '2015-05-01T22:12:03.284Z'
+description: 'Hello World'
 ---
 
 This is my first post on my new fake blog! How exciting!
@@ -24,7 +24,7 @@ Oh, and here's a great quote from this Wikipedia on
 You can also write code blocks here!
 
 ```js
-const saltyDuckEgg = "chinese preserved food product"
+const saltyDuckEgg = 'chinese preserved food product'
 ```
 
 | Number | Title                                    | Year |
@@ -34,6 +34,25 @@ const saltyDuckEgg = "chinese preserved food product"
 | 3      | Harry Potter and the Prisoner of Azkaban | 2004 |
 
 [View raw (TEST.md)](https://raw.github.com/adamschwartz/github-markdown-kitchen-sink/master/README.md)
+
+```js
+if (posts.length > 0) {
+  posts.forEach((post, index) => {
+    const previousPostId = index === 0 ? null : posts[index - 1].id
+    const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+
+    createPage({
+      path: post.fields.slug,
+      component: blogPost,
+      context: {
+        id: post.id,
+        previousPostId,
+        nextPostId,
+      },
+    })
+  })
+}
+```
 
 This is a paragraph.
 
@@ -190,13 +209,13 @@ Paragraph:
 
     ---------------------------------------
 
-This is [an example](http://example.com "Example") link.
+This is [an example](http://example.com 'Example') link.
 
 [This link](http://example.com) has no title attr.
 
 This is [an example][id] reference-style link.
 
-[id]: http://example.com "Optional Title"
+[id]: http://example.com 'Optional Title'
 
     This is [an example](http://example.com "Example") link.
 
@@ -226,6 +245,6 @@ This paragraph has some `code` in it.
 
     This paragraph has some `code` in it.
 
-![Alt Text](https://placehold.it/200x50 "Image Title")
+![Alt Text](https://placehold.it/200x50 'Image Title')
 
     ![Alt Text](https://placehold.it/200x50 "Image Title")
