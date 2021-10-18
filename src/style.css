@@ -54,13 +54,13 @@
   --fontSize-5: 2.074rem;
   --fontSize-6: 2.488rem;
   --fontSize-7: 2.986rem;
-  --color-primary: #a5afe4;
-  --color-text: #ffffff;
+  --color-primary: #9d0006;
+  --color-text: #282828;
   --color-text-light: #f2f2f2;
-  --color-heading: #ffffff;
-  --color-heading-black: #ffffff;
+  --color-heading: #282828;
+  --color-heading-black: #282828;
   --color-accent: #d1dce5;
-  --color-background: #23252e;
+  --color-background: #ffffff;
 }
 
 /* HTML elements */
@@ -302,6 +302,8 @@ a:focus {
   margin-bottom: var(--spacing-0);
   min-width: 50px;
   border-radius: 100%;
+  /* border-radius with overflow doesn't work with WebKit */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 }
 
 .blog-post header h1 {
