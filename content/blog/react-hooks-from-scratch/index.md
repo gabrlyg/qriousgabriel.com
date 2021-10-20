@@ -4,9 +4,9 @@ date: '2021-10-17'
 description: A very basic simulation of React Hooks with a single function component.
 ---
 
-I've been wondering how [React Hooks](https://reactjs.org/docs/hooks-intro.html) work for quite a while.
+I've been wondering how [React Hooks](https://reactjs.org/docs/hooks-intro.html) work for quite a while, today I finally got some time to dive deep into it.
 
-This blog is not going to talk about the benefits of Hooks, but we are going to go through a very basic simulation of React Hooks so that we can have some understanding of how Hooks work under the hood.
+This blog is not going to talk about the benefits of Hooks since it has been talked about everywhere. Today we are going to go through a very basic simulation of React Hooks so that we can have some understanding of how Hooks work under the hood.
 
 ## Replicating `useState`
 
@@ -278,7 +278,7 @@ Then we can just call `useState` as we did before, no change is needed.
 
 ## Conclusion
 
-Hopefully this blogs give you an idea of how React Hooks work and a better understanding of the Rules of Hooks.
+This implementation is _not_ React, just a very basic simulation, and definitely doesn't cover every detail of React Hooks. But hopefully this blog post could give you an idea of how React Hooks work, and a better understanding of the Rules of Hooks.
 
 Have fun coding!
 
