@@ -2,15 +2,25 @@
   "name": "qriousgabriel-com",
   "private": true,
   "description": "Personal Blog written by qriousgabriel",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Gang Yang <qriousgabriel@gmail.com>",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
+    "@mdx-js/loader": "^1.6.22",
+    "@next/mdx": "^12.0.1",
     "babel-plugin-styled-components": "^1.13.2",
+    "gray-matter": "^4.0.3",
     "next": "^12.0.1",
     "prismjs": "^1.25.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "remark": "^14.0.1",
+    "remark-html": "^15.0.0",
     "styled-components": "^5.3.1",
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
@@ -29,10 +39,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/qriousgabriel/qriousgabriel-com.git"
-  },
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
   }
 }

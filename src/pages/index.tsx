@@ -1,99 +1,35 @@
-import * as React from "react"
-import { Link, graphql, PageProps } from "gatsby"
+import * as React from 'react'
+import Link from 'next/link'
+import { GetStaticProps } from 'next'
+import { getAllPostsMetaData } from '../libs/api'
 
-import Bio from "../components/Bio"
-import Layout from "../components/Layout"
-import SEO from "../components/SEO"
-
-interface DataProps {
-  site: {
-    siteMetadata: any
-  }
-  allMarkdownRemark: any
+type BlogIndexProps = {
+  allPostsMetadata: PostMetadata[]
 }
 
-const BlogIndex: React.FC<PageProps<DataProps>> = ({
-  data,
-  location,
-}: PageProps<DataProps>) => {
-  const siteTitle = data.site?.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
-      </Layout>
-    )
-  }
-
+const BlogIndex = ({ allPostsMetadata }: BlogIndexProps) => {
   return (
-    <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map((post: any) => {
-          const title = post.frontmatter.title || post.fields.slug
-
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
-    </Layout>
+    <section>
+      <ul>
+        {allPostsMetadata.map((post) => (
+          <li key={post.slug}>
+            <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+            <br />
+            {post.date}
+          </li>
+        ))}
+      </ul>
+    </section>
   )
 }
 
-export default BlogIndex
-
-export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
-      }
-    }
+export const getStaticProps: GetStaticProps = async () => {
+  const allPostsMetadata = getAllPostsMetaData()
+  return {
+    props: {
+      allPostsMetadata,
+    },
   }
-`
+}
+
+export default BlogIndex

@@ -13,7 +13,15 @@
     "noUnusedParameters": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
+    "incremental": true,
+    "moduleResolution": "node"
   },
-  "include": ["./src/**/*"]
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"],
+  "paths": {
+    "*": ["types/*.d.ts"]
+  }
 }
