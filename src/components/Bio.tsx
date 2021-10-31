@@ -1,8 +1,7 @@
 import * as React from 'react'
 import Image, { ImageProps } from 'next/image'
 import styled from 'styled-components'
-
-import config from '../../config'
+import config from '@config'
 
 const BioAvatarWrapper = styled.div`
   margin-right: var(--spacing-4);

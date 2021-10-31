@@ -1,4 +1,4 @@
-export default {
+const config = {
   title: `Qrious Gabriel`,
   author: {
     name: `qriousgabriel`,
@@ -12,3 +12,5 @@ export default {
     github: `qriousgabriel`,
   },
 }
+
+export default config

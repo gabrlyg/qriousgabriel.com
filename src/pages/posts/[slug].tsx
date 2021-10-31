@@ -2,9 +2,9 @@ import { GetStaticProps } from 'next'
 import Link from 'next/link'
 import * as React from 'react'
 import styled from 'styled-components'
-import Bio from '../../components/Bio'
-import Layout from '../../components/Layout'
-import { getAllPostPaths, getPostBySlug } from '../../libs/api'
+import Bio from '@components/Bio'
+import Layout from '@components/Layout'
+import { getAllPostPaths, getPostBySlug } from '@libs/api'
 
 const BottomNavList = styled.ul`
   display: flex;
