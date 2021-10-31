@@ -2,6 +2,8 @@ import * as React from 'react'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
 import { getAllPostsMetaData } from '../libs/api'
+import Layout from '../components/Layout'
+import Bio from '../components/Bio'
 
 type BlogIndexProps = {
   allPostsMetadata: PostMetadata[]
@@ -9,17 +11,36 @@ type BlogIndexProps = {
 
 const BlogIndex = ({ allPostsMetadata }: BlogIndexProps) => {
   return (
-    <section>
-      <ul>
+    <Layout>
+      <Bio />
+      <ol style={{ listStyle: 'none' }}>
         {allPostsMetadata.map((post) => (
-          <li key={post.slug}>
-            <Link href={`/posts/${post.slug}`}>{post.title}</Link>
-            <br />
-            {post.date}
-          </li>
+          <article
+            className='post-list-item'
+            itemScope
+            itemType='http://schema.org/Article'
+          >
+            <header>
+              <h2>
+                <Link href={`/posts/${post.slug}`}>
+                  <a itemProp='headline'>{post.title}</a>
+                </Link>
+              </h2>
+
+              <small>{post.date}</small>
+            </header>
+            <section>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: post.description || '',
+                }}
+                itemProp='description'
+              />
+            </section>
+          </article>
         ))}
-      </ul>
-    </section>
+      </ol>
+    </Layout>
   )
 }
 
