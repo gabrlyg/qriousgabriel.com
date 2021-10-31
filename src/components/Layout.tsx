@@ -2,7 +2,7 @@ import * as React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import config from '../../config'
+import config from '@config'
 
 type LayoutProps = {
   children: JSX.Element | JSX.Element[]
