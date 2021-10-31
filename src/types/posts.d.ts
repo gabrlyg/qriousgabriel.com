@@ -8,4 +8,6 @@ declare type PostMetadata = PostFrontMatter & {
 }
 declare type PostData = PostMetadata & {
   contentHtml: string
+  previousPost?: PostMetadata
+  nextPost?: PostMetadata
 }

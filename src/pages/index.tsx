@@ -15,29 +15,31 @@ const BlogIndex = ({ allPostsMetadata }: BlogIndexProps) => {
       <Bio />
       <ol style={{ listStyle: 'none' }}>
         {allPostsMetadata.map((post) => (
-          <article
-            className='post-list-item'
-            itemScope
-            itemType='http://schema.org/Article'
-          >
-            <header>
-              <h2>
-                <Link href={`/posts/${post.slug}`}>
-                  <a itemProp='headline'>{post.title}</a>
-                </Link>
-              </h2>
+          <li key={post.slug}>
+            <article
+              className='post-list-item'
+              itemScope
+              itemType='http://schema.org/Article'
+            >
+              <header>
+                <h2>
+                  <Link href={`/posts/${post.slug}`}>
+                    <a itemProp='headline'>{post.title}</a>
+                  </Link>
+                </h2>
 
-              <small>{post.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: post.description || '',
-                }}
-                itemProp='description'
-              />
-            </section>
-          </article>
+                <small>{post.date}</small>
+              </header>
+              <section>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: post.description || '',
+                  }}
+                  itemProp='description'
+                />
+              </section>
+            </article>
+          </li>
         ))}
       </ol>
     </Layout>

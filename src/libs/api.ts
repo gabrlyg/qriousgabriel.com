@@ -22,29 +22,61 @@ export const getAllPostPaths = () =>
 export const getPostBySlug = async (slug: string): Promise<PostData> => {
   const fullPath = join(postsDir, `${slug}.md`)
   const fileContent = fs.readFileSync(fullPath, 'utf8')
-  const { data, content } = matter(fileContent)
+  const {
+    data: { title, date, description },
+    content,
+  } = matter(fileContent)
 
   const contentHtml = await markdownToHtml(content)
+
+  const [previousPost, nextPost] = getPreviousNextPost(
+    slug,
+    getAllPostsMetaData()
+  )
+
   return {
     slug,
     contentHtml,
-    ...(data as PostFrontMatter),
+    title,
+    date: getFormattedDate(date),
+    description,
+    previousPost,
+    nextPost,
   }
 }
 
 export const getPostMetaDataBySlug = (slug: string): PostMetadata => {
   const fullPath = join(postsDir, `${slug}.md`)
   const fileContent = fs.readFileSync(fullPath, 'utf8')
-  const { data } = matter(fileContent)
+  const {
+    data: { title, date, description },
+  } = matter(fileContent)
   return {
     slug,
-    ...(data as PostFrontMatter),
+    title,
+    date: getFormattedDate(date),
+    description,
   }
 }
 
 export const getAllPostsMetaData = (): PostMetadata[] => {
   const posts = getAllPostSlugs()
     .map((slug) => getPostMetaDataBySlug(slug))
-    .sort((post0, post1) => (post0.date > post1.date ? -1 : 1))
+    .sort((post0, post1) =>
+      new Date(post0.date) > new Date(post1.date) ? -1 : 1
+    )
   return posts
+}
+
+const getPreviousNextPost = (slug: string, posts: PostMetadata[]) => {
+  const index = posts.findIndex(({ slug: postSlug }) => postSlug === slug)
+  return [posts[index + 1] || null, posts[index - 1] || null]
+}
+
+const getFormattedDate = (date: string): string => {
+  return new Date(date).toLocaleDateString('en-GB', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
 }

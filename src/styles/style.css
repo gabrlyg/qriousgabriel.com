@@ -319,7 +319,7 @@ a:focus {
   margin: var(--spacing-0);
 }
 
-.gatsby-highlight {
+.remark-highlight {
   margin-bottom: var(--spacing-8);
   font-size: var(--fontSize-0);
 }
