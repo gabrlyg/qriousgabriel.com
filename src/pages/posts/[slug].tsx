@@ -18,8 +18,8 @@ const BottomNav = ({
   previousPost,
   nextPost,
 }: {
-  previousPost?: PostMetadata
-  nextPost?: PostMetadata
+  previousPost?: PostMeta
+  nextPost?: PostMeta
 }) => {
   return (
     <nav className={'blog-post-nav'}>
@@ -47,7 +47,7 @@ const BottomNav = ({
   )
 }
 
-const BlogPost = ({ postData }: { postData: PostData }) => {
+const BlogPost = ({ post }: { post: Post }) => {
   return (
     <Layout>
       <article
@@ -56,19 +56,16 @@ const BlogPost = ({ postData }: { postData: PostData }) => {
         itemType='http://schema.org/Article'
       >
         <header>
-          <h1 itemProp='headline'>{postData.title}</h1>
-          <p>{postData.date}</p>
+          <h1 itemProp='headline'>{post.title}</h1>
+          <p>{post.date}</p>
         </header>
         <section>
-          <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+          <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
         </section>
         <footer>
           <Bio />
         </footer>
-        <BottomNav
-          previousPost={postData.previousPost}
-          nextPost={postData.nextPost}
-        />
+        <BottomNav previousPost={post.previousPost} nextPost={post.nextPost} />
       </article>
     </Layout>
   )

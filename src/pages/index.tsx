@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import Bio from '../components/Bio'
 
 type BlogIndexProps = {
-  allPostsMetadata: PostMetadata[]
+  allPostsMetadata: PostMeta[]
 }
 
 const BlogIndex = ({ allPostsMetadata }: BlogIndexProps) => {

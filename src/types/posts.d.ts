@@ -3,11 +3,11 @@ declare type PostFrontMatter = {
   date: string
   description?: string
 }
-declare type PostMetadata = PostFrontMatter & {
+declare type PostMeta = PostFrontMatter & {
   slug: string
 }
-declare type PostData = PostMetadata & {
+declare type Post = PostMeta & {
   contentHtml: string
-  previousPost?: PostMetadata
-  nextPost?: PostMetadata
+  previousPost?: PostMeta
+  nextPost?: PostMeta
 }

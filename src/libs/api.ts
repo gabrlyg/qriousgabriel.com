@@ -19,7 +19,7 @@ export const getAllPostPaths = () =>
     },
   }))
 
-export const getPostBySlug = async (slug: string): Promise<PostData> => {
+export const getPostBySlug = async (slug: string): Promise<Post> => {
   const fullPath = join(postsDir, `${slug}.md`)
   const fileContent = fs.readFileSync(fullPath, 'utf8')
   const {
@@ -45,7 +45,7 @@ export const getPostBySlug = async (slug: string): Promise<PostData> => {
   }
 }
 
-export const getPostMetaDataBySlug = (slug: string): PostMetadata => {
+export const getPostMetaDataBySlug = (slug: string): PostMeta => {
   const fullPath = join(postsDir, `${slug}.md`)
   const fileContent = fs.readFileSync(fullPath, 'utf8')
   const {
@@ -59,7 +59,7 @@ export const getPostMetaDataBySlug = (slug: string): PostMetadata => {
   }
 }
 
-export const getAllPostsMetaData = (): PostMetadata[] => {
+export const getAllPostsMetaData = (): PostMeta[] => {
   const posts = getAllPostSlugs()
     .map((slug) => getPostMetaDataBySlug(slug))
     .sort((post0, post1) =>
@@ -68,7 +68,7 @@ export const getAllPostsMetaData = (): PostMetadata[] => {
   return posts
 }
 
-const getPreviousNextPost = (slug: string, posts: PostMetadata[]) => {
+const getPreviousNextPost = (slug: string, posts: PostMeta[]) => {
   const index = posts.findIndex(({ slug: postSlug }) => postSlug === slug)
   return [posts[index + 1] || null, posts[index - 1] || null]
 }
