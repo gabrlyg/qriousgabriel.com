@@ -1,8 +1,8 @@
 import * as React from 'react'
-import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import config from '@config'
+import SEO from './SEO'
 
 type LayoutProps = {
   children: JSX.Element | JSX.Element[]
@@ -19,14 +19,12 @@ const Header = ({ title, isRoot }: HeaderProps) => {
       {isRoot ? (
         <h1 className='main-heading'>
           <Link href='/'>
-            <a href='/'>{title}</a>
+            <a>{title}</a>
           </Link>
         </h1>
       ) : (
         <Link href='/'>
-          <a className='header-link-home' href='/'>
-            {title}
-          </a>
+          <a className='header-link-home'>{title}</a>
         </Link>
       )}
     </header>
@@ -38,10 +36,7 @@ const Layout = ({ children }: LayoutProps) => {
   const isRoot = pathname === '/'
   return (
     <React.Fragment>
-      <Head>
-        <title>{config.title}</title>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <SEO />
       <div className='global-wrapper'>
         <Header isRoot={isRoot} title={config.title} />
         <main>{children}</main>

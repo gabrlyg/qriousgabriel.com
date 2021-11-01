@@ -11,6 +11,7 @@ const config = {
     instagram: `qriousgabriel`,
     github: `qriousgabriel`,
   },
+  lang: 'en',
 }
 
 export default config

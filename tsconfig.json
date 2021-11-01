@@ -23,6 +23,7 @@
       "*": ["types/*.d.ts"],
       "@components/*": ["src/components/*"],
       "@libs/*": ["src/libs/*"],
+      "@styles/*": ["src/styles/*"],
       "@assets/*": ["assets/*"],
       "@config": ["config/index.ts"]
     }

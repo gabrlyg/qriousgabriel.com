@@ -4,6 +4,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Bio from '@components/Bio'
 import Layout from '@components/Layout'
+import SEO from '@components/SEO'
 import { getAllPostPaths, getPostBySlug } from '@libs/api'
 
 const BottomNavList = styled.ul`
@@ -55,6 +56,7 @@ const BlogPost = ({ post }: { post: Post }) => {
         itemScope
         itemType='http://schema.org/Article'
       >
+        <SEO title={post.title} description={post.description} />
         <header>
           <h1 itemProp='headline'>{post.title}</h1>
           <p>{post.date}</p>
@@ -62,6 +64,7 @@ const BlogPost = ({ post }: { post: Post }) => {
         <section>
           <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
         </section>
+        <hr />
         <footer>
           <Bio />
         </footer>
@@ -80,10 +83,10 @@ export const getStaticPaths = () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostBySlug(params?.slug as string)
+  const post = await getPostBySlug(params?.slug as string)
   return {
     props: {
-      postData,
+      post,
     },
   }
 }

@@ -12,10 +12,24 @@ const BioAvatarWrapper = styled.div`
   border-radius: 50%;
 `
 
-const BioAvatar = (props: ImageProps) => {
+const BioAvatar = ({
+  layout,
+  src,
+  width,
+  height,
+  quality,
+  alt,
+}: ImageProps) => {
   return (
     <BioAvatarWrapper>
-      <Image {...props} />
+      <Image
+        layout={layout}
+        src={src}
+        width={width}
+        height={height}
+        quality={quality}
+        alt={alt}
+      />
     </BioAvatarWrapper>
   )
 }
