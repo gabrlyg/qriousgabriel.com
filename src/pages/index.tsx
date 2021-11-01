@@ -1,9 +1,9 @@
 import * as React from 'react'
 import Link from 'next/link'
 import { GetStaticProps } from 'next'
-import { getAllPostsMetaData } from '../libs/api'
-import Layout from '../components/Layout'
-import Bio from '../components/Bio'
+import { getAllPostsMetaData } from '@libs/api'
+import Layout from '@components/Layout'
+import Bio from '@components/Bio'
 import SEO from '@components/SEO'
 
 type BlogIndexProps = {
