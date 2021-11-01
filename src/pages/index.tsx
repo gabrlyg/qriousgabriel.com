@@ -13,7 +13,7 @@ type BlogIndexProps = {
 const BlogIndex = ({ allPostsMetadata }: BlogIndexProps) => {
   return (
     <Layout>
-      <SEO />
+      <SEO title={'All posts'} />
       <Bio />
       <ol style={{ listStyle: 'none' }}>
         {allPostsMetadata.map((post) => (
