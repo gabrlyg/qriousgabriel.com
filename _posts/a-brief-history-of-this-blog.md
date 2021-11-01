@@ -1,6 +1,6 @@
 ---
 title: A Brief History of this Blog
-date: "2021-10-03"
+date: '2021-10-03'
 description: How and why this blog was made.
 ---
 
@@ -11,3 +11,7 @@ I've had this idea of having a blog that I can write in Markdown then just publi
 I've also started a hobby of photography since 2019 after COVID-19 happened. I'm sort of a tech nerd as well so I thought "OK, maybe I will also use my blog to talk about photography and the gears I have as well.", but to achieve this goal the blog page must be able to support more complex components (e.g. what if I want to have an image carousel in my post?). It didn't take me too long to find out [MDX](https://mdxjs.com/mdx/) is a thing, and it's exactly what I was looking for.
 
 Very excited to have a little corner of mine on the internet and hopefully I can share some meaningful/helpful contents here.
+
+---
+
+_Update: As of 1 Nov 2021, this blog has been migrated to [Next.js](https://nextjs.org/)._
