@@ -8,6 +8,10 @@ const BioAvatarWrapper = styled.div`
   margin-bottom: var(--spacing-0);
   height: 50px;
   width: 50px;
+  min-width: 50px;
+  max-width: 50px;
+  min-height: 50px;
+  max-height: 50px;
   overflow: hidden;
   border-radius: 50%;
 `
