@@ -5,6 +5,7 @@ import { getAllPostsMetaData } from '@libs/api'
 import Layout from '@components/Layout'
 import Bio from '@components/Bio'
 import SEO from '@components/SEO'
+import config from '@config'
 
 type BlogIndexProps = {
   allPostsMetadata: PostMeta[]
@@ -13,7 +14,7 @@ type BlogIndexProps = {
 const BlogIndex = ({ allPostsMetadata }: BlogIndexProps) => {
   return (
     <Layout>
-      <SEO title={'All posts'} />
+      <SEO title={'All posts'} description={config.description} />
       <Bio />
       <ol style={{ listStyle: 'none' }}>
         {allPostsMetadata.map((post) => (

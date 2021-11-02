@@ -4,13 +4,14 @@ import config from '@config'
 
 const SEO = ({ description, title }: any) => {
   const siteTitle = config.title
+  const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle
 
   return (
     <Head>
-      <title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
+      <title>{pageTitle}</title>
       <meta name='description' content={description} />
       <meta property='og:type' content='website' />
-      <meta property='og:title' content={title} />
+      <meta property='og:title' content={pageTitle} />
       <meta property='og:description' content={description} />
       <meta property='og:site_name' content={siteTitle} />
       <meta property='twitter:card' content='summary' />
