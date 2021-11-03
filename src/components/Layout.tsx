@@ -2,7 +2,6 @@ import * as React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import config from '@config'
-import SEO from './SEO'
 
 type LayoutProps = {
   children: JSX.Element | JSX.Element[]
@@ -36,7 +35,6 @@ const Layout = ({ children }: LayoutProps) => {
   const isRoot = pathname === '/'
   return (
     <React.Fragment>
-      <SEO />
       <div className='global-wrapper'>
         <Header isRoot={isRoot} title={config.title} />
         <main>{children}</main>
