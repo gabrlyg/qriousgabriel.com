@@ -36,7 +36,7 @@ const PrismTheme = createGlobalStyle`
     background: hsl(220, 13%, 18%);
     color: hsl(220, 14%, 71%);
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-    font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono',
+    font-family: Inconsolata, Consolas, 'DejaVu Sans Mono',
       monospace;
     direction: ltr;
     text-align: left;
@@ -85,6 +85,7 @@ const PrismTheme = createGlobalStyle`
     white-space: normal;
     background: #efefef;
     color: hsl(220, 13%, 18%);
+    text-shadow: none;
   }
   :not(pre) > code[class*='language-']::selection {
     background: hsl(220, 14%, 71%);

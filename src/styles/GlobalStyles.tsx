@@ -55,7 +55,7 @@ const GlobalStyle = createGlobalStyle`
     --fontSize-5: 2.074rem;
     --fontSize-6: 2.488rem;
     --fontSize-7: 2.986rem;
-    --color-primary: #9d0006;
+    --color-primary: #165B97;
     --color-text: #282828;
     --color-text-light: #3c3836;
     --color-heading: #282828;
@@ -322,7 +322,7 @@ const GlobalStyle = createGlobalStyle`
 
   .remark-highlight {
     margin-bottom: var(--spacing-8);
-    font-size: var(--fontSize-0);
+    font-size: var(--fontSize-1);
   }
 
   /* Media queries */
