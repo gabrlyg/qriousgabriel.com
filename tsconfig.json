@@ -20,14 +20,20 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "*": ["types/*.d.ts"],
+      "*": ["*"],
       "@components/*": ["src/components/*"],
       "@libs/*": ["src/libs/*"],
+      "@themes/*": ["src/themes/*"],
       "@styles/*": ["src/styles/*"],
       "@assets/*": ["assets/*"],
-      "@config": ["config/index.ts"]
+      "@config": ["config"],
+      "@components": ["src/components"],
+      "@libs": ["src/libs"],
+      "@themes": ["src/themes"],
+      "@styles": ["src/styles"],
+      "@assets": ["assets"]
     }
   },
-  "include": ["./src/**/*", "config"],
+  "include": ["src/**/*", "config"],
   "exclude": ["node_modules"]
 }
