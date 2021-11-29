@@ -12,6 +12,9 @@ const StyledButton = styled.button`
   z-index: 10;
   outline: 2px dotted transparent;
   transition: outline 400ms, background-color 400ms;
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
 
   :focus,
   :hover {

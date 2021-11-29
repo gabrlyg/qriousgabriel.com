@@ -23,7 +23,8 @@ const NavMenu = styled.div`
   visibility: hidden;
   display: flexbox;
   backdrop-filter: blur(0px);
-  transition: backdrop-filter 400ms, visibility 400ms;
+  transition: backdrop-filter 400ms, -webkit-backdrop-filter 400ms,
+    visibility 400ms;
 
   &.show {
     backdrop-filter: blur(20px);

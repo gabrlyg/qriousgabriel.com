@@ -3,24 +3,28 @@ import * as React from 'react'
 import styled from 'styled-components'
 
 const ToggleNavButtonWrapper = styled.button`
+  z-index: 10;
+  background-color: transparent;
+  outline: 2px dotted transparent;
+  border: none;
+  border-radius: 8px;
+  transition: all 400ms;
+  padding: 0;
+  margin-left: -12px;
+
+  :focus-visible {
+    outline: 2px dotted var(--color-text-light);
+  }
+`
+const ToggleNavButtonBox = styled.div`
   width: 48px;
   height: 48px;
   display: inline-flexbox;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 10;
-  background-color: transparent;
-  border: none;
-  outline: 2px dotted transparent;
-  border-radius: 8px;
-  transition: all 400ms;
-
-  :focus-visible {
-    outline: 2px dotted var(--color-text-light);
-  }
 `
-const ToggleNavButtonContent = styled.div`
+const ToggleNavButtonInnerBox = styled.div`
   height: 2px;
   width: 24px;
   background-color: var(--color-text);
@@ -73,7 +77,9 @@ export const ToggleNavButton = React.forwardRef(
   ) => {
     return (
       <ToggleNavButtonWrapper onClick={props.onClick} ref={ref}>
-        <ToggleNavButtonContent />
+        <ToggleNavButtonBox>
+          <ToggleNavButtonInnerBox />
+        </ToggleNavButtonBox>
       </ToggleNavButtonWrapper>
     )
   }
