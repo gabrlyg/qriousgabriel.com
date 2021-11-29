@@ -1,22 +1,24 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { DarkModeToggleButton } from './DarkModeToggleButton'
 import Nav from './Nav'
 
 const Wrapper = styled.header`
-  padding: 16px;
-  position: sticky;
-  top: 0;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  width: 100%;
+  padding: var(--spacing-8);
+  width: var(--maxWidth-full);
   display: flexbox;
-  background-color: ${(props) => props.theme.color.background};
+  background-color: var(--color-background);
   align-items: center;
+  justify-content: space-between;
+  max-width: 42rem;
+  transition: all 250ms;
 `
 
 export const Header = () => {
   return (
     <Wrapper>
       <Nav />
+      <DarkModeToggleButton />
     </Wrapper>
   )
 }

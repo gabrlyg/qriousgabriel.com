@@ -1,15 +1,14 @@
 import * as React from 'react'
 import type { AppProps } from 'next/app'
-import { ThemeProvider } from 'styled-components'
 import '@fontsource/merriweather'
 import '@fontsource/montserrat'
 import '@fontsource/inconsolata'
 import { GlobalStyle, Normalize, PrismTheme } from '@styles'
-import { lightTheme } from '@themes'
+import { ThemeProvider } from 'src/providers/ThemeProvider'
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider>
       <GlobalStyle />
       <Normalize />
       <PrismTheme />
