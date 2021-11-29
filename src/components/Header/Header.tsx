@@ -12,6 +12,7 @@ const Wrapper = styled.header`
   justify-content: space-between;
   max-width: 42rem;
   transition: all 250ms;
+  margin: auto;
 `
 
 export const Header = () => {
