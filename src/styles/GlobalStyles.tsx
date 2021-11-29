@@ -1,6 +1,53 @@
+import React from 'react'
+import { useTheme } from 'src/providers/ThemeProvider'
 import { createGlobalStyle } from 'styled-components'
+import { lightTheme, darkTheme } from './themes'
+interface GlobalStyleProps {
+  darkModeEnabled: boolean
+}
 
-const GlobalStyle = createGlobalStyle`
+const ThemedGlobalStyle = createGlobalStyle<GlobalStyleProps>`
+  @property --color-primary {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #165B97;
+  }
+  @property --color-text {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #282828;
+  }
+  @property --color-text-light {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #3c3836;
+  }
+  @property --color-heading {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #282828;
+  }
+  @property --color-heading-black {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #282828;
+  }
+  @property --color-accent {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #d1dce5;
+  }
+  @property --color-background {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #ffffff;
+  }
+  @property --color-background-light {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #ffffff;
+  }
+
   :root {
     --maxWidth-none: 'none';
     --maxWidth-xs: 20rem;
@@ -55,13 +102,8 @@ const GlobalStyle = createGlobalStyle`
     --fontSize-5: 2.074rem;
     --fontSize-6: 2.488rem;
     --fontSize-7: 2.986rem;
-    --color-primary: #165B97;
-    --color-text: #282828;
-    --color-text-light: #3c3836;
-    --color-heading: #282828;
-    --color-heading-black: #282828;
-    --color-accent: #d1dce5;
-    --color-background: #ffffff;
+    ${({ darkModeEnabled }) => (darkModeEnabled ? darkTheme : lightTheme)}
+    transition: all 250ms;
   }
 
   /* HTML elements */
@@ -84,6 +126,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: var(--fontSize-1);
     color: var(--color-text);
     background: var(--color-background);
+    transition: inherit;
   }
 
   footer {
@@ -338,5 +381,10 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 `
+
+const GlobalStyle = () => {
+  const { darkModeEnabled } = useTheme()
+  return <ThemedGlobalStyle darkModeEnabled={darkModeEnabled} />
+}
 
 export default GlobalStyle
