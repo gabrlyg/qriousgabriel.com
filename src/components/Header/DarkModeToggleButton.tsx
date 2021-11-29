@@ -4,17 +4,16 @@ import styled from 'styled-components'
 
 const StyledButton = styled.button`
   background-color: var(--color-background);
-  width: 48px;
-  height: 48px;
   border-radius: 8px;
   border: 2px solid #cccccc;
   justify-self: flex-end;
   z-index: 10;
   outline: 2px dotted transparent;
   transition: outline 400ms, background-color 400ms;
-  display: flexbox;
-  justify-content: center;
-  align-items: center;
+  appearance: none;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 
   :focus,
   :hover {
@@ -23,6 +22,14 @@ const StyledButton = styled.button`
   :focus-visible {
     outline: 2px dotted var(--color-text-light);
   }
+`
+const ButtonContent = styled.div`
+  width: 48px;
+  height: 48px;
+  box-sizing: content-box;
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
 `
 
 export const DarkModeToggleButton = () => {
@@ -36,7 +43,7 @@ export const DarkModeToggleButton = () => {
       onClick={toggleDarkMode}
       aria-label={darkModeEnabled ? 'Turn off dark mode' : 'Turn on dark mode'}
     >
-      {darkModeEnabled ? '🌛' : '🌞'}
+      <ButtonContent>{darkModeEnabled ? '🌛' : '🌞'}</ButtonContent>
     </StyledButton>
   )
 }
